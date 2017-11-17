@@ -1,3 +1,48 @@
-<p>
-  group-table works!
-</p>
+<div>
+  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" [attr.data-target]="'#modalTable_'+name">Table {{name}}</button>
+  <ul class="list-group" style="margin-top:5px;">
+    <li *ngFor="let element of elements" class="list-group-item">
+      {{element.name}}
+      <ng-template [ngIf]="element.categoryElement!=null">{{element.categoryElement.name}}</ng-template>  
+    </li>
+  </ul>
+
+  <div class="modal fade" [attr.id]="'modalTable_'+name" tabindex="-1" role="dialog" aria-labelledby="modalTableLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Table {{name}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-default" (click)="addCategory()">+ category</button><br>
+                <ng-template ngFor let-category [ngForOf]="categories" let-i="index">
+                  <div class="col-md-12" style="margin-top:5px;">
+                    <button class="btn btn-primary" [ngClass]="{'btn-success':activeCategory.name==category.name}" (click)="setActiveCategory(category)">
+                      {{category.name}}
+                    </button>
+                    <button class="btn btn-default" (click)="deleteCategory(i)">x</button>              
+                  </div>
+                </ng-template>
+            </div>
+            <div class="col-md-6">
+              <ng-template ngFor let-element [ngForOf]="elements" let-i="index">
+                <div class="col-md-6" style="margin-bottom:2px;">
+                  <button class="btn btn-default" (click)="element.setCategory(activeCategory)">
+                    {{element.name}}
+                    <ng-template [ngIf]="element.categoryElement!=undefined">{{element.categoryElement.name}}</ng-template>  
+                  </button>
+                </div>
+              </ng-template>                    
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

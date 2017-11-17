@@ -1,6 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+  <h1>Test Angular2 </h1>
+  <p>Sample of passing data to child component using @Input</p>
+  <p>Select a table to assing a category to their elements</p>
+    <ng-template ngFor let-tableElements [ngForOf]="tableElementsArray" let-i="index">
+      <div class="col-md-3">
+        <group-table [elements]="tableElements" [categories]="tableCategoriesArray[i]" [name]="i"></group-table>      
+      </div>
+    </ng-template>
 </div>
