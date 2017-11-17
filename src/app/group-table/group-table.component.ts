@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { TableElement } from '../table-element';
-import { Category } from '../category';
+import { TableElement } from './table-element';
+import { Category } from './category';
 @Component({
   selector: 'group-table',
   templateUrl: './group-table.component.html',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GroupTableComponent } from './group-table/group-table.component';
 
-import { TableElement } from './table-element'
+import { TableElement } from './group-table/table-element'
 
 
 @Component({
