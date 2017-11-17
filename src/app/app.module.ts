@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { GroupTableComponent } from './group-table/group-table.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GroupTableComponent
   ],
   imports: [
     BrowserModule
